@@ -17,7 +17,7 @@
   </div>
   <div class="col-8 m-auto pt-2 pb-2">
     <!--{{form}}-->
-    <form method="post" name="form" action="/register/" id="form">
+    <form method="post" name="form" action="{%if 'db'%}/update/{{db.id}}{%else%}/register/{%endif%}" id="form">
       {%csrf_token%}
       <div class="form-group mb-4">
         <label for="modelinput" class="text-white">Model: </label>{{form.model}}

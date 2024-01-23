@@ -37,12 +37,14 @@
           <td>
             <a href="view/{{dbs.id}}/" class="btn btn-primary">See</a>
             <a href="edit/{{dbs.id}}/" class="btn btn-secondary">Edit</a>
-            <a href="view/{{dbs.id}}/" class="btn btn-danger">Delete</a>
+            <a href="delete/{{dbs.id}}/" class="btn btn-danger btnDel">Delete</a>
           </td>
         </tr>
         {% endfor %}
     </table>
   </div>
+  {%loads static%}
+  <script src="{% static ' javascript.js'%}"></script>
 </body>
 
 </html>

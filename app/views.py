@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from django.http import HttpResponseRedirect
 from app.forms import CarsForm
 from app.models import Cars
 
@@ -17,7 +18,8 @@ def create(request):
   form = CarsForm(request.POST or None)
   if form.is_valid():
     form.save()
-    return redirect('home')
+    #form = CarsForm
+    return render(request, 'form.html', {'form': form})
   
 def view(request, pk):
   data = {}
@@ -29,6 +31,7 @@ def edit(request,pk):
   data['db'] = Cars.objects.get(pk=pk)
   data['form'] = CarsForm(instance=data['db'])
   return render(request, 'form.html', data)
+
 def update(request,pk):
   data = {}
   data['db'] = Cars.objects.get(pk=pk)

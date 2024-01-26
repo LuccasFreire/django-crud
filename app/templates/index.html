@@ -13,7 +13,7 @@
     <h1 class="text-light">CRUD</h1>
   </div>
   <div class="col-8 m-auto pt-2 pb-2">
-    <a href="registerform/" class="btn btn-success">Create</a>
+    <a href="registerform/" class="btn btn-success">Add car</a>
   </div>
   <div class="col-8 m-auto pt-2 pb-2">
     <table class="table table-dark">
@@ -43,8 +43,8 @@
         {% endfor %}
     </table>
   </div>
-  {%loads static%}
-  <script src="{% static ' javascript.js'%}"></script>
+  {%load static%}
+  <script src="{% static 'javascript.js' %}"></script>
 </body>
 
 </html>

@@ -10,10 +10,16 @@ from django.core.paginator import Paginator
 
 def home(request):
   data = {}
+  search = request.GET.get('search')
   all = Cars.objects.all()
-  paginator = Paginator(all,2)
-  pages = request.GET.get('page')
-  data['db'] = paginator.get_page(pages)
+  
+  if search:
+    data['db'] = Cars.objects.filter(model__icontains = search)
+  else:
+    paginator = Paginator(all, 10)
+    pages = request.GET.get('page')
+    data['db'] = paginator.get_page(pages)
+  
   return render(request, 'index.html', data)
 
 def createform(request):
